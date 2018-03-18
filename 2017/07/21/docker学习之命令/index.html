@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="docker,命令," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="常用命令。">
+<meta name="keywords" content="docker,命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker学习之命令">
+<meta property="og:url" content="https://linruihong.github.io/2017/07/21/docker学习之命令/index.html">
+<meta property="og:site_name" content="ruihong&#39;s blog">
+<meta property="og:description" content="常用命令。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-29T06:37:33.686Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="docker学习之命令">
+<meta name="twitter:description" content="常用命令。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://linruihong.github.io/2017/07/21/docker学习之命令/"/>
+
+
+
+
+
+  <title>docker学习之命令 | ruihong's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ruihong's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不经一番寒彻骨，怎得梅花扑鼻香。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/categories/python/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-list"></i> <br />
+            
+            python
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://linruihong.github.io/2017/07/21/docker学习之命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ruihong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ruihong's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">docker学习之命令</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-21T17:08:03+08:00">
+                2017-07-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/21/docker学习之命令/" class="leancloud_visitors" data-flag-title="docker学习之命令">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>常用命令。</p>
+<a id="more"></a>
+<p><a href="#ignore1">暂时忽略问题1</a> （已解决）</p>
+<p><a href="#ignore2">暂时忽略问题2</a></p>
+<h2 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h2><p>Docker 允许你在容器内运行应用程序， 使用 docker run 命令来在容器内运行一个应用程序。</p>
+<p>例子：输出Hello world</p>
+<pre><code>docker run ubuntu /bin/echo &quot;Hello world&quot;
+</code></pre><p>结果：</p>
+<pre><code>$ docker run ubuntu /bin/echo &quot;Hello world&quot;
+Hello world
+</code></pre><p>各个参数解析：</p>
+<ul>
+<li>docker：Docker 的二进制执行文件。</li>
+<li>run：与前面的 docker 组合来运行一个容器。</li>
+<li>ubuntu：指定要运行的镜像，Docker首先从本地主机上查找镜像是否存在，如果不存在，Docker 就会从镜像仓库 Docker Hub 下载公共镜像。</li>
+<li>/bin/echo “Hello world”：在启动的容器里执行的命令</li>
+</ul>
+<p>以上命令完整的意思可以解释为：Docker 以 ubuntu 镜像创建一个新容器，然后在容器里执行 bin/echo “Hello world”，然后输出结果。</p>
+<p><em>“镜像”与“容器”的关系，类似于“类”与“对象”的关系</em></p>
+<h2 id="启动容器（后台模式）"><a href="#启动容器（后台模式）" class="headerlink" title="启动容器（后台模式）"></a>启动容器（后台模式）</h2><p>使用以下命令创建一个以进程方式运行的容器：</p>
+<pre><code>docker run -d ubuntu /bin/sh -c &quot;while true; do echo hello world; sleep 1; done&quot;
+</code></pre><p>输出结果：</p>
+<pre><code>$ docker run -d ubuntu /bin/sh -c &quot;while true; do echo hello world; sleep 1; done&quot;
+bffeb0f011214f2416eeaa2f30ce0353adf1f59908fa7b63b05f41ee86d66237
+</code></pre><p>在输出中，我们没有看到期望的”hello world”，而是一串长字符</p>
+<pre><code>bffeb0f011214f2416eeaa2f30ce0353adf1f59908fa7b63b05f41ee86d66237
+</code></pre><p>这个长字符串叫做容器ID，对每个容器来说都是唯一的，我们可以通过容器ID来查看对应的容器发生了什么。首先，我们需要确认容器有在运行，可以通过 docker ps 来查看</p>
+<pre><code>docker ps
+</code></pre><p>输出如下：</p>
+<pre><code>$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS               NAMES
+bffeb0f01121        ubuntu              &quot;/bin/sh -c &apos;while...&quot;   About a minute ago   Up About a minute                       unruffled_pasteur
+</code></pre><ul>
+<li>CONTAINER ID：容器ID</li>
+<li>NAMES：自动分配的容器名称</li>
+</ul>
+<p>在容器内使用docker logs命令，查看容器内的标准输出：</p>
+<pre><code>docker logs bffeb0f01121
+</code></pre><p>输出结果：</p>
+<pre><code>$ docker logs bffeb0f01121
+hello world
+hello world
+（。。。这里省去一千个hello world）
+</code></pre><p>其中 bffeb0f01121 是容器ID位于开头的一部分，可以不需要使用完整的容器ID，便可以让 docker 命令找到该容器。</p>
+<p>查看容器内的标准输出时，可以不使用容器ID，使用 docker ps 输出的容器名字（在 NAMES 那一列），也可以查看容器的输出：</p>
+<pre><code>docker logs unruffled_pasteur
+</code></pre><p>输出结果：</p>
+<pre><code>$ docker logs unruffled_pasteur
+hello world
+hello world
+（。。。这里省去一万个hello world）
+</code></pre><h2 id="停止容器"><a href="#停止容器" class="headerlink" title="停止容器"></a>停止容器</h2><p>我们使用 docker stop 命令来停止容器：</p>
+<pre><code>docker stop bffeb0f01121
+</code></pre><p>或者：</p>
+<pre><code>docker stop unruffled_pasteur
+</code></pre><p>输出结果：</p>
+<pre><code>$ docker stop unruffled_pasteur
+unruffled_pasteur
+</code></pre><p>停止容器后，再使用 docker ps 查看运行中的容器，输出：</p>
+<pre><code>$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+</code></pre><h2 id="列出镜像列表"><a href="#列出镜像列表" class="headerlink" title="列出镜像列表"></a>列出镜像列表</h2><p>我们可以使用<code>docker images</code>来列出本地主机上的镜像</p>
+<pre><code>$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+ubuntu              latest              d355ed3537e9        3 weeks ago         119MB
+training/webapp     latest              6fae60ef3446        2 years ago         349MB
+</code></pre><p>各个选项说明:</p>
+<ul>
+<li>REPOSITORY：表示镜像的仓库源</li>
+<li>TAG：镜像的标签</li>
+<li>IMAGE ID：镜像ID</li>
+<li>CREATED：镜像创建时间</li>
+<li>SIZE：镜像大小</li>
+</ul>
+<p>同一仓库源可以有多个 TAG，代表这个仓库源的不同个版本，如ubuntu仓库源里，有15.10、14.04等多个不同的版本，我们使用 REPOSTITORY:TAG 来定义不同的镜像。</p>
+<p>所以，我们如果要使用版本为15.10的ubuntu系统镜像来运行容器时，命令如下：</p>
+<pre><code>docker run -t -i ubuntu:15.10 /bin/bash
+</code></pre><p>如果要使用版本为14.04的ubuntu系统镜像来运行容器时，命令如下：</p>
+<pre><code>docker run -t -i ubuntu:14.04 /bin/bash
+</code></pre><p>如果你不指定一个镜像的版本标签，例如你只使用 ubuntu，docker 将默认使用 ubuntu:latest 镜像。</p>
+<h2 id="查找镜像"><a href="#查找镜像" class="headerlink" title="查找镜像"></a>查找镜像</h2><p>我们可以从 Docker Hub 网站来搜索镜像，Docker Hub 网址为：<a href="https://hub.docker.com" target="_blank" rel="external">https://hub.docker.com</a></p>
+<p>我们也可以使用 docker search 命令来搜索镜像。比如我们需要一个 mongo 的镜像。我们可以通过 docker search 命令搜索 mongo 来寻找适合我们的镜像。(命令执行后显示的是2017/7/18的查询结果：</p>
+<pre><code>$ docker search mongo
+NAME                   DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+mongo                  MongoDB document databases provide high av...   3457      [OK]
+mongo-express          Web-based MongoDB admin interface, written...   169       [OK]
+mvertes/alpine-mongo   light MongoDB container                         51                   [OK]
+dhermanns/rpi-mongo    Mongo 2.6 Database for the Raspberry Pi 1/2     10
+jacksoncage/mongo      Instant MongoDB sharded cluster                 6                    [OK]
+khezen/mongo           MongoDB Docker image supporting RocksDB st...   4                    [OK]
+ekesken/mongo          docker image for mongo that is configurabl...   1                    [OK]
+xemuliam/mongo         Unofiicial MongoDB docker image on Alpine       1                    [OK]
+19hz/mongo-container   Mongodb replicaset for coreos                   1                    [OK]
+exceliants/mongo                                                       1
+kobotoolbox/mongo      https://github.com/kobotoolbox/kobo-docker...   1                    [OK]
+ackee/mongo            MongoDB with fixed Bluemix permissions          1                    [OK]
+bigtruedata/mongo      Image for MongoDB                               0                    [OK]
+appsdeck/mongo                                                         0
+mygravity/mongo        A slow starting mongo instance. Allows the...   0
+sscpac/mongo           alpine mongo                                    0                    [OK]
+circleci/mongo         MongoDB document databases provide high av...   0
+sacashgit/mongo                                                        0
+os33/go-mongo          go and mongo package for testing                0
+voidbridge/mongo       MongoDB                                         0                    [OK]
+cescoferraro/mongo     docker alpine mongo                             0
+18fgsa/mongo                                                           0
+buddy/mongo            Mongo DB service for Buddy Enterprise.          0
+quilt/mongo            MongoDB container for quilt.io                  0                    [OK]
+17media/mongo
+</code></pre><ul>
+<li>NAME:镜像仓库源的名称</li>
+<li>DESCRIPTION:镜像的描述</li>
+<li>OFFICIAL:是否docker官方发布</li>
+</ul>
+<h2 id="获取一个新的镜像"><a href="#获取一个新的镜像" class="headerlink" title="获取一个新的镜像"></a>获取一个新的镜像</h2><p>当我们在本地主机上使用一个不存在的镜像时 Docker 就会自动下载这个镜像。如果我们想预先下载这个镜像，我们可以使用 docker pull 命令来下载它。</p>
+<p>例如，用 docker search 查询到了一个名为 mvertes/alpine-mongo 的 mongo 镜像，可以用如下命令下载：</p>
+<pre><code>docker pull mvertes/alpine-mongo
+</code></pre><p>结果显示：</p>
+<pre><code>$ docker pull mvertes/alpine-mongo
+Using default tag: latest
+latest: Pulling from mvertes/alpine-mongo
+758a6ad3cc15: Pulling fs layer
+12f9fb81fc6d: Pulling fs layer
+2523f8b9bee4: Pulling fs layer
+2523f8b9bee4: Verifying Checksum
+2523f8b9bee4: Download complete
+758a6ad3cc15: Verifying Checksum
+758a6ad3cc15: Download complete
+758a6ad3cc15: Pull complete
+12f9fb81fc6d: Verifying Checksum
+12f9fb81fc6d: Download complete
+12f9fb81fc6d: Pull complete
+2523f8b9bee4: Pull complete
+Digest: sha256:279de41f3980b5371da359cb58545dd611ace20fa938e426b793f68c82e9d748
+Status: Downloaded newer image for mvertes/alpine-mongo:latest
+</code></pre><p>下载完成后，就可以使用这个镜像来运行容器。</p>
+<h2 id="创建镜像"><a href="#创建镜像" class="headerlink" title="创建镜像"></a>创建镜像</h2><p>当我们从docker镜像仓库中下载的镜像不能满足我们的需求时，我们可以通过以下两种方式对镜像进行更改。</p>
+<ul>
+<li>从已经创建的容器中更新镜像，并且提交这个镜像</li>
+<li>使用 Dockerfile 指令来创建一个新的镜像</li>
+</ul>
+<h3 id="更新镜像"><a href="#更新镜像" class="headerlink" title="更新镜像"></a>更新镜像</h3><p><span id="createubuntucontainer"></span><br>更新镜像之前，我们需要使用镜像来创建一个容器。</p>
+<pre><code>$ docker run -t -i ubuntu /bin/bash
+root@277d67d262f7:/#
+</code></pre><hr>
+<p><span id="ignore1"></span></p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a><em>注意</em></h2><p>使用 Docker Quickstart Terminal 启动终端输入窗口，使用上面的命令都是可行的。但是，直接使用 git 自带的 git-bash.exe 运行 docker 目录下的 start.sh 来启动时，输入上面的命令就会出错：</p>
+<pre><code>$ docker run -t -i ubuntu /bin/bash
+the input device is not a TTY.  If you are using mintty, try prefixing the command with &apos;winpty&apos;
+</code></pre><p>改变命令，则是另一种错误：</p>
+<pre><code>$ winpty docker run -t -i ubuntu /bin/bash
+docker: Error response from daemon: oci runtime error: container_linux.go:262: starting container process caused &quot;exec: \&quot;D:/Program Files/Git/usr/bin/bash\&quot;: stat D:/Program Files/Git/usr/bin/bash: no such file or directory&quot;.
+</code></pre><p>网上说有两种可能：</p>
+<ul>
+<li>The file or directory you are mapping is invalid</li>
+<li>The base image you are using do not have /bin/bash</li>
+</ul>
+<p>再修改命令，居然可以了，而且查了一下，容器里面的 /bin 下也有 bash 啊，不知道为什么上一个命令不能用。</p>
+<pre><code>$ winpty docker run -t -i ubuntu
+root@b836e7b03121:/#
+</code></pre><p>2017/7/24 补充：</p>
+<p>从<a href="https://docs.docker.com/docker-for-windows/#explore-the-application-and-run-examples" target="_blank" rel="external">这里</a>看到一个类似指令<code>docker run -it ubuntu bash</code>，也是可以的，与前面的指令结果一致，不过同样要在指令前面加<code>winpty</code>才行。</p>
+<pre><code>$ winpty docker run -it ubuntu bash
+root@0cb8072550ec:/#
+</code></pre><p>2017/7/27 补充：</p>
+<p>在命令窗口中，使用 <a href="https://docs.docker.com/machine/overview/" target="_blank" rel="external">Docker Machine</a> ssh 到虚拟机上，可以使用在虚拟上使用的命令，包括上面的<code>docker run -t -i ubuntu /bin/bash</code>（不需要使用变化过的指令，例如上面提到的<code>winpty docker run -t -i ubuntu</code>、<code>winpty docker run -it ubuntu bash</code>或者<code>docker run -it ubuntu bash</code>）。</p>
+<p>在 Docker Quickstart Terminal 命令行窗口中，或者打开 Docker Toolbox 安装目录下的 start.sh ，在出现的命令行窗口中，输入命令<code>docker-machine.exe ls</code>可以查看当前管理的 Docker 主机：</p>
+<pre><code>$ docker-machine.exe ls
+NAME      ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER        ERRORS
+default   -        virtualbox   Running   tcp://192.168.99.100:2376           v17.06.0-ce
+</code></pre><p>可以看到当前 docker-machine 管理的 Docker 主机就只有一个名为<code>default</code>的主机，使用命令 ssh 到这个主机上，就可以在上面，使用 linux 命令，和登录 linux 上操作命令一样了：</p>
+<pre><code>$ docker-machine.exe ssh default
+                        ##         .
+                  ## ## ##        ==
+               ## ## ## ## ##    ===
+           /&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;\___/ ===
+      ~~~ {~~ ~~~~ ~~~ ~~~~ ~~~ ~ /  ===- ~~~
+           \______ o           __/
+             \    \         __/
+              \____\_______/
+ _                 _   ____     _            _
+| |__   ___   ___ | |_|___ \ __| | ___   ___| | _____ _ __
+| &apos;_ \ / _ \ / _ \| __| __) / _` |/ _ \ / __| |/ / _ \ &apos;__|
+| |_) | (_) | (_) | |_ / __/ (_| | (_) | (__|   &lt;  __/ |
+|_.__/ \___/ \___/ \__|_____\__,_|\___/ \___|_|\_\___|_|
+Boot2Docker version 17.06.0-ce, build HEAD : 0672754 - Thu Jun 29 00:06:31 UTC 2017
+Docker version 17.06.0-ce, build 02c1d87
+docker@default:~$
+</code></pre><p>然后就可以正常使用上面创建 ubuntu 容器命令了 <a href="#createubuntucontainer">点这里</a></p>
+<pre><code>docker@default:~$ docker run -t -i ubuntu /bin/bash
+root@49d611c645b5:/#
+</code></pre><hr>
+<p>在运行的容器内使用 apt-get update 命令进行更新。</p>
+<pre><code>root@277d67d262f7:/# apt-get update
+Get:1 http://archive.ubuntu.com/ubuntu xenial InRelease [247 kB]
+Get:2 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Get:3 http://security.ubuntu.com/ubuntu xenial-security/universe Sources [42.0 kB]
+Get:4 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [380 kB]
+Get:5 http://security.ubuntu.com/ubuntu xenial-security/restricted amd64 Packages [12.8 kB]
+Get:6 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages[178 kB]
+Get:7 http://security.ubuntu.com/ubuntu xenial-security/multiverse amd64 Packages [2931 B]
+Get:1 http://archive.ubuntu.com/ubuntu xenial InRelease [247 kB]
+Get:8 http://archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:9 http://archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:10 http://archive.ubuntu.com/ubuntu xenial/universe Sources [9802 kB]
+Ign:10 http://archive.ubuntu.com/ubuntu xenial/universe Sources
+Get:11 http://archive.ubuntu.com/ubuntu xenial/main amd64 Packages [1558 kB]
+Get:11 http://archive.ubuntu.com/ubuntu xenial/main amd64 Packages [1558 kB]
+Get:11 http://archive.ubuntu.com/ubuntu xenial/main amd64 Packages [1558 kB]
+Get:12 http://archive.ubuntu.com/ubuntu xenial/restricted amd64 Packages [14.1 kB]
+Get:13 http://archive.ubuntu.com/ubuntu xenial/universe amd64 Packages [9827 kB]
+Get:14 http://archive.ubuntu.com/ubuntu xenial/multiverse amd64 Packages [176 kB]
+Get:15 http://archive.ubuntu.com/ubuntu xenial-updates/universe Sources [205 kB]
+Get:16 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [737kB]
+Get:16 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [737kB]
+Get:17 http://archive.ubuntu.com/ubuntu xenial-updates/restricted amd64 Packages [13.3 kB]
+Get:18 http://archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [637 kB]
+Get:19 http://archive.ubuntu.com/ubuntu xenial-updates/multiverse amd64 Packages [16.8 kB]
+Get:20 http://archive.ubuntu.com/ubuntu xenial-backports/main amd64 Packages [4930 B]
+Get:21 http://archive.ubuntu.com/ubuntu xenial-backports/universe amd64 Packages [6241 B]
+Get:10 http://archive.ubuntu.com/ubuntu xenial/universe Sources [9802 kB]
+Fetched 20.0 MB in 31min 0s (10.8 kB/s)
+Reading package lists... Done
+</code></pre><p>在完成操作之后，输入 exit命令来退出这个容器。此时ID为 277d67d262f7 的容器，是按我们的需求更改的容器。</p>
+<p>我们可以通过命令 docker commit来提交容器副本：</p>
+<pre><code>$ docker commit -m=&quot;update ubt&quot; -a=&quot;homerlim&quot; 277d67d262f7 homerlim/ubuntu:v1
+sha256:5a32b6d303dde821d126c6bad8b6e6253f747f7171b10560a60e463bf008721b
+</code></pre><p>各个参数说明：</p>
+<ul>
+<li>-m：提交的描述信息</li>
+<li>-a：指定镜像作者</li>
+<li>277d67d262f7：容器ID</li>
+<li>homerlim/ubuntu:v1：指定要创建的目标镜像名</li>
+</ul>
+<p>我们可以使用 docker images 命令来查看我们的新镜像 homerlim/ubuntu:v1：</p>
+<pre><code>$ docker images
+REPOSITORY             TAG                 IMAGE ID            CREATED              SIZE
+homerlim/ubuntu        v1                  5a32b6d303dd        About a minute ago   158MB
+ubuntu                 latest              d355ed3537e9        4 weeks ago          119MB
+mvertes/alpine-mongo   latest              bcac9fb36a28        2 months ago         106MB
+training/webapp        latest              6fae60ef3446        2 years ago          349MB
+</code></pre><p>使用我们的新镜像 homerlim/ubuntu 来启动一个容器</p>
+<pre><code>$ winpty docker run -t -i homerlim/ubuntu:v1
+root@a94442c935d0:/#
+</code></pre><p><span id="ignore2"></span></p>
+<h3 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h3><p>我们使用命令 docker build，从零开始来创建一个新的镜像。为此，我们需要创建一个 Dockerfile 文件，其中包含一组指令来告诉 Docker 如何构建我们的镜像。</p>
+<p><a href="http://www.runoob.com/docker/docker-image-usage.html" target="_blank" rel="external">具体做法</a> -&gt; “构建镜像”一节，看起来比较复杂，暂时不搞，以后再说。</p>
+<h3 id="设置镜像标签"><a href="#设置镜像标签" class="headerlink" title="设置镜像标签"></a>设置镜像标签</h3><p>我们可以使用 docker tag 命令，为镜像添加一个新的标签。</p>
+<pre><code>$ docker tag 5a32b6d303dd homerlim/ubuntu:v2
+</code></pre><p>docker tag 镜像ID，这里是 5a32b6d303dd，用户名称、镜像源名(repository name)和新的标签名(tag)。<br>使用 docker images 命令可以看到，ID为 5a32b6d303dd 的镜像多一个标签。</p>
+<pre><code>$ docker images
+REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
+homerlim/ubuntu        v1                  5a32b6d303dd        2 days ago          158MB
+homerlim/ubuntu        v2                  5a32b6d303dd        2 days ago          158MB
+ubuntu                 latest              d355ed3537e9        4 weeks ago         119MB
+mvertes/alpine-mongo   latest              bcac9fb36a28        2 months ago        106MB
+training/webapp        latest              6fae60ef3446        2 years ago         349MB
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/docker/" rel="tag"># docker</a>
+          
+            <a href="/tags/命令/" rel="tag"># 命令</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/03/docker学习之安装/" rel="next" title="docker学习之安装">
+                <i class="fa fa-chevron-left"></i> docker学习之安装
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/27/docker学习之命令2/" rel="prev" title="docker学习之命令2">
+                docker学习之命令2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="ruihong" />
+            
+              <p class="site-author-name" itemprop="name">ruihong</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.google.com/" title="谷歌" target="_blank">谷歌</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="百度" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hello-world"><span class="nav-number">1.</span> <span class="nav-text">hello world</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动容器（后台模式）"><span class="nav-number">2.</span> <span class="nav-text">启动容器（后台模式）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#停止容器"><span class="nav-number">3.</span> <span class="nav-text">停止容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列出镜像列表"><span class="nav-number">4.</span> <span class="nav-text">列出镜像列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找镜像"><span class="nav-number">5.</span> <span class="nav-text">查找镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取一个新的镜像"><span class="nav-number">6.</span> <span class="nav-text">获取一个新的镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建镜像"><span class="nav-number">7.</span> <span class="nav-text">创建镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#更新镜像"><span class="nav-number">7.1.</span> <span class="nav-text">更新镜像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">8.</span> <span class="nav-text">注意</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构建镜像"><span class="nav-number">8.1.</span> <span class="nav-text">构建镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置镜像标签"><span class="nav-number">8.2.</span> <span class="nav-text">设置镜像标签</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ruihong</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#vcomments' ,
+        verify: false,
+        notify: false,
+        app_id: 'YzwnXYA3TiEPb9FpBgPLidf2-gzGzoHsz',
+        app_key: 'tDaCHaTTNRP2BqOzs5IId6mS',
+        placeholder: 'Comment input placeholder'
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("YzwnXYA3TiEPb9FpBgPLidf2-gzGzoHsz", "tDaCHaTTNRP2BqOzs5IId6mS");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

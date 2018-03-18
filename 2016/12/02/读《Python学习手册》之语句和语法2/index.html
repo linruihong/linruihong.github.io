@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="语法," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="继续语句语法的学习。">
+<meta name="keywords" content="语法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="读《Python学习手册》之语句和语法2">
+<meta property="og:url" content="https://linruihong.github.io/2016/12/02/读《Python学习手册》之语句和语法2/index.html">
+<meta property="og:site_name" content="ruihong&#39;s blog">
+<meta property="og:description" content="继续语句语法的学习。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://linruihong.github.io/2016/12/02/读《Python学习手册》之语句和语法2/循环else_1.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/12/02/读《Python学习手册》之语句和语法2/map、zip和filter迭代器1.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/12/02/读《Python学习手册》之语句和语法2/多个迭代器VS单个迭代器1.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/12/02/读《Python学习手册》之语句和语法2/多个迭代器VS单个迭代器2.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/12/02/读《Python学习手册》之语句和语法2/多个迭代器VS单个迭代器3.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/12/02/读《Python学习手册》之语句和语法2/字典视图迭代器1.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/12/02/读《Python学习手册》之语句和语法2/字典视图迭代器2.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/12/02/读《Python学习手册》之语句和语法2/字典视图迭代器3.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/12/02/读《Python学习手册》之语句和语法2/字典视图迭代器4.png">
+<meta property="og:updated_time" content="2017-10-14T08:27:32.473Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="读《Python学习手册》之语句和语法2">
+<meta name="twitter:description" content="继续语句语法的学习。">
+<meta name="twitter:image" content="https://linruihong.github.io/2016/12/02/读《Python学习手册》之语句和语法2/循环else_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://linruihong.github.io/2016/12/02/读《Python学习手册》之语句和语法2/"/>
+
+
+
+
+
+  <title>读《Python学习手册》之语句和语法2 | ruihong's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ruihong's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不经一番寒彻骨，怎得梅花扑鼻香。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/categories/python/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-list"></i> <br />
+            
+            python
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://linruihong.github.io/2016/12/02/读《Python学习手册》之语句和语法2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ruihong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ruihong's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">读《Python学习手册》之语句和语法2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-02T15:29:49+08:00">
+                2016-12-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2016/12/02/读《Python学习手册》之语句和语法2/" class="leancloud_visitors" data-flag-title="读《Python学习手册》之语句和语法2">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>继续语句语法的学习。</p>
+<a id="more"></a>
+<h2 id="while-和-for-循环"><a href="#while-和-for-循环" class="headerlink" title="while 和 for 循环"></a>while 和 for 循环</h2><p>while 循环一般格式:</p>
+<pre><code>while &lt;test&gt;:
+    &lt;statements1&gt;
+else:
+    &lt;statements2&gt;    #如果循环不是由break结束时，会执行
+</code></pre><h2 id="break、continue、pass-和循环-else"><a href="#break、continue、pass-和循环-else" class="headerlink" title="break、continue、pass 和循环 else"></a>break、continue、pass 和循环 else</h2><ul>
+<li>break，跳出最近所在的循环（路过整个循环语句）</li>
+<li>continue，跳到最近所在循环的开头处（来到循环的首行）</li>
+<li>pass，什么事也不做，只是空占位语句</li>
+<li>循环 else 块，只有当循环正常离开时才会执行（也就是没有碰到 break 语句）</li>
+</ul>
+<h2 id="一般循环格式"><a href="#一般循环格式" class="headerlink" title="一般循环格式"></a>一般循环格式</h2><pre><code>while &lt;test1&gt;:
+    &lt;statements1&gt;
+    if &lt;test2&gt;: break
+    if &lt;test3&gt;: continue
+else:
+    &lt;statements2&gt;
+</code></pre><p>break 和 continue 可以出现在 while(或for)循环主体的任何地方，但通常会进一步嵌套在 if 语句中，根据某些条件来采取对应的操作。</p>
+<h2 id="pass"><a href="#pass" class="headerlink" title="pass"></a>pass</h2><p>pass 语句是无运算的占位语句，当语法需要语句并且还没有任何实用的语句可写时，就可以使用它。它通常用于为复合语句编写一个空的主体。例如，想写个无限循环，每次迭代时什么也不做，就写个 pass。</p>
+<pre><code>while True: pass    # Type Ctrl-C to stop me!
+</code></pre><p><em>Python 3.0 允许在可以使用表达式的任何地方使用 <code>...</code>（三个连续的点号）来省略代码。</em></p>
+<pre><code>def func1():
+    ...
+def func2():
+    ...
+func1()
+</code></pre><h2 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h2><h2 id="break"><a href="#break" class="headerlink" title="break"></a>break</h2><h2 id="循环else"><a href="#循环else" class="headerlink" title="循环else"></a>循环else</h2><p>和循环else 子句结合时，break 语句通常可以忽略其他语言中所需的搜索状态标志位。</p>
+<p><em>如果循环主体从没有执行过，循环 else 分句也会执行，因为循环没有执行到 break 语句。</em></p>
+<p><img src="循环else_1.png" alt="img"></p>
+<p>如下的常见于C语言编码的代码，在Python中是行不通的：</p>
+<pre><code>while ((x = next()) != NULL) {...process x...}
+</code></pre><p>C赋值运算会返回赋值后的值，但Python赋值语句只是语句，不是表达式。这样就排除了一个众所周知的C的错误（当使用”==”时，在Python中会不小心打成”=”）。但是如果需要类似的行为，可以编写其他代码达到相等的效果，而不是在循环测试中嵌入赋值语句。</p>
+<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><pre><code>for &lt;target&gt; in &lt;object&gt;:
+    &lt;statements&gt;
+else:
+    &lt;statements&gt;
+</code></pre><p>for循环运行时，会逐个将序列对象中的元素赋值给目标，然后为每个元素执行循环主体。循环主体一般使用赋值的目标来引用序列中当前的元素，就好像那是遍历序列的游标。</p>
+<p>for首行中用作赋值目标的变量名通常是<strong>for语句所在作用域中的变量</strong>（可能是新的）。循环结束后，这个变量一般都还是引用了最近所用过的元素，也就是序列中最后的元素，除非通过一个break语句退出了循环，才有可能不是引用序列中最后的元素。</p>
+<h2 id="并行遍历：zip-和-map"><a href="#并行遍历：zip-和-map" class="headerlink" title="并行遍历：zip 和 map"></a>并行遍历：zip 和 map</h2><p>zip函数让我们使用for循环来并行使用多个序列。在基本运算中，zip会取得一个或多个序列为参数，然后返回元组的列表，将这些序列中的并排的元素配成对。</p>
+<pre><code>&gt;&gt;&gt; L1 = [1,2,3,4]
+&gt;&gt;&gt; L2 = [5,6,7,8]
+</code></pre><p>要合并这些列表中的元素，我们可以使用zip来创建一个元组对的列表（和range一样，zip在Python3.0中也是一个可迭代对象，因此，我们必须将其包含在一个list调用中以便一次性显示所有结果）：</p>
+<pre><code>&gt;&gt;&gt; zip(L1,L2)
+[(1, 5), (2, 6), (3, 7), (4, 8)] #这个结果在Python3.0中可能是&lt;zip object at ...&gt;
+&gt;&gt;&gt; list(zip(L1,L2))
+[(1, 5), (2, 6), (3, 7), (4, 8)]
+</code></pre><p>搭配for循环时，它就支持并行迭代：</p>
+<pre><code>&gt;&gt;&gt; for (x,y) in zip(L1,L2):
+        print(x,y,&apos;--&apos;,x+y)
+1 5 -- 6
+2 6 -- 8
+3 7 -- 10
+4 8 -- 12
+</code></pre><blockquote>
+<p>严格来讲，zip函数比这个例子所示意的更为一般化。例如，zip可以接受任何类型的序列（其实就是任何可迭代的对象，包括文件），并且可以有两个以上的参数。对于3个参数，它构建了3元素元组的一个列表，其中带有来自每个序列的元素，基本上按照列对应。</p>
+</blockquote>
+<p>当参数长度不同时，zip会以最短序列的长度为准来截断所得到的元组。</p>
+<pre><code>&gt;&gt;&gt; L1
+[1, 2, 3, 4]
+&gt;&gt;&gt; L2
+(5, 6, 7)
+&gt;&gt;&gt; zip(L1,L2)
+[(1, 5), (2, 6), (3, 7)]
+</code></pre><h2 id="Python-2-6中的map的等价形式"><a href="#Python-2-6中的map的等价形式" class="headerlink" title="Python 2.6中的map的等价形式"></a>Python 2.6中的map的等价形式</h2><p>在Python 2.X中，相关的内置map函数，用类似方式把序列的元素配对起来，但是如果参数长度不同，则会为较短的序列用None补齐（而不是按最短的长度截断）：</p>
+<pre><code>&gt;&gt;&gt; s1
+&apos;abc&apos;
+&gt;&gt;&gt; s2
+&apos;xyz123&apos;
+&gt;&gt;&gt; map(None, s1,s2)
+[(&apos;a&apos;, &apos;x&apos;), (&apos;b&apos;, &apos;y&apos;), (&apos;c&apos;, &apos;z&apos;), (None, &apos;1&apos;), (None, &apos;2&apos;), (None, &apos;3&apos;)]
+</code></pre><p>这个例子其实是使用内置map函数的退化形式，Python 3.0不再支持该函数，一般来讲，map会带一个函数，以及一个或多个的序列参数，然后把从序列中取出的并行元素调用函数的结果收集起来。</p>
+<h2 id="使用zip构造字典"><a href="#使用zip构造字典" class="headerlink" title="使用zip构造字典"></a>使用zip构造字典</h2><p>当键和值的集合必须在运行时计算时，zip 函数也可用于产生字典，并且使用非常方便。</p>
+<pre><code>&gt;&gt;&gt; keys = [&quot;spam&quot;, &quot;eggs&quot;, &quot;toast&quot;]
+&gt;&gt;&gt; vals = [1,3,5]
+</code></pre><p>将这些列表变成字典的一种做法就是将这些字符串 zip 起来，并通过 for 循环并行步进处理。</p>
+<pre><code>&gt;&gt;&gt; list(zip(keys, vals))
+[(&apos;spam&apos;, 1), (&apos;eggs&apos;, 3), (&apos;toast&apos;, 5)]
+&gt;&gt;&gt; D2 = {}
+&gt;&gt;&gt; for (k,v) in zip(keys, vals): D2[k] = v
+&gt;&gt;&gt; D2
+{&apos;toast&apos;: 5, &apos;eggs&apos;: 3, &apos;spam&apos;: 1}
+</code></pre><p>不过，在 Python 2.2和后续版本中，可以跳过 for 循环，直接把 zip 过的键/值列表传给内置的 dict 构造函数。</p>
+<pre><code>D3 = dict(zip(keys, vals))
+&gt;&gt;&gt; D3
+{&apos;toast&apos;: 5, &apos;eggs&apos;: 3, &apos;spam&apos;: 1}
+</code></pre><p>内置变量名 dict 其实是 Python 中的类型名称。对它进行调用的时候，可以得到类似列表到字典的转换，但这其实是一个对象构造的请求。</p>
+<h2 id="产生偏移的元素：enumerate"><a href="#产生偏移的元素：enumerate" class="headerlink" title="产生偏移的元素：enumerate"></a>产生偏移的元素：enumerate</h2><pre><code>&gt;&gt;&gt; S = &apos;spam&apos;
+&gt;&gt;&gt; for (offset, item) in enumerate(S):
+        print(item, &apos;appears at offset&apos;, offset)
+
+(&apos;s&apos;, &apos;appears at offset&apos;, 0)
+(&apos;p&apos;, &apos;appears at offset&apos;, 1)
+(&apos;a&apos;, &apos;appears at offset&apos;, 2)
+(&apos;m&apos;, &apos;appears at offset&apos;, 3)
+</code></pre><p>enumerate 函数返回一个生成器对象：这种对象有一个 <strong>next</strong> 方法，由下一个内置函数调用它，并且循环中每次迭代的时候它会返回一个(index, value)的元组。我们可以在 for 循环中通过元组赋值运算将元组解包。</p>
+<pre><code>&gt;&gt;&gt; E = enumerate(S)
+&gt;&gt;&gt; E
+&lt;enumerate object at 0x0276FE40&gt;
+&gt;&gt;&gt; next(E)
+</code></pre><h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><p><em>迭代器比较难理解，看一次没什么感觉（像迭代协议），后面还要反复看</em></p>
+<p>如果对象是实际保存的序列，或者可以在迭代工具环境中（例如，for循环）一次产生一个结果的对象，就看做是可迭代的。</p>
+<h2 id="文件迭代器"><a href="#文件迭代器" class="headerlink" title="文件迭代器"></a>文件迭代器</h2><p>逐行读取文本文件的最佳方式就是根本不要去读取，其替代的办法就是，让for循环在每轮自动调用next从而前进到下一行。相同效果的原始方式，是以for循环调用文件的readlines方法，将文件内容加载到内存，做成行字符串的列表，这个办法是一次把整个文件加到内存，如果文件太大，容易导致计算机内存空间不足，甚至不能工作。而一次读一行，迭代器版本对这类内存爆炸的问题就有了免疫能力。</p>
+<h2 id="手动迭代：-iter-和-next"><a href="#手动迭代：-iter-和-next" class="headerlink" title="手动迭代： iter 和 next"></a>手动迭代： iter 和 next</h2><p><em>在Python 2.6中，迭代方法<strong>next</strong>()是next()，在Python 3.0中才是<strong>next</strong>()，为了可移植性，内置函数next(X)在Python 2.6中也是可以用的，但在更早的版本不可以，并且next(X)调用Python 2.6的X.next()而不是Python 3.0的X.<strong>next</strong>()。在Python 2.6中所有其他方式中，迭代都是一样工作的，只是在手动迭代中直接使用X.next()或next(X)，而不是Python 3.0的X.<strong>next</strong>()。在Python 2.6之前的版本中，应该使用手动X.next()调用而不是next(X)。—-来自《Python学习手册》</em></p>
+<p>为了支持手动迭代代码（用较少的录入），Python 3.0还提供了一个内置函数 next，它会自动调用一个对象的 <strong>next</strong> 方法。给定一个可迭代对象 X，调用 next(X) 等同于 X.<strong>next</strong>()，但前者简单很多。</p>
+<p>列表以及很多其他的内置对象，不是自身的迭代器（文件对象是自己的迭代器，它有自己的<strong>next</strong>方法），因为它们支持多次打开迭代器。对这样的对象，我们必须调用iter来启动迭代：</p>
+<pre><code>&gt;&gt;&gt; L = [1,2,3]
+&gt;&gt;&gt; iter(L) is L
+False
+&gt;&gt;&gt; L.__next__()
+AttributeError: &apos;list&apos; object has no attribute &apos;__next__&apos;
+
+&gt;&gt;&gt; I = iter(L)
+&gt;&gt;&gt; I.next()   #在Python 3.0中应该是 I.__next__()
+1
+&gt;&gt;&gt; I.next()   #在Python 3.0中应该等同是 I.__next__() 或 next(I)
+2
+</code></pre><p>尽管Python迭代工具自动调用这些函数，我们也可以使用它们来手动地应用迭代协议。</p>
+<h2 id="其他内置类型的迭代器"><a href="#其他内置类型的迭代器" class="headerlink" title="其他内置类型的迭代器"></a>其他内置类型的迭代器</h2><p>除了文件以及像列表这样的实际的序列外，其他类型也有适用的迭代器。如遍历字典键的经典方法是明确地获取其键的列表。</p>
+<pre><code>&gt;&gt;&gt; D = {1:2, 2:3, 3:4}
+&gt;&gt;&gt; for key in D.keys():
+        print (key, D[key])
+    1 2
+    2 3
+    3 4
+</code></pre><p>不过，在最近的Python版本中，字典有一个迭代器，在迭代环境中，会自动一次返回一个键</p>
+<pre><code>&gt;&gt;&gt; I = iter(D)
+&gt;&gt;&gt; next(I)  #Python 2.6以前版本应该是 I.next()
+1
+&gt;&gt;&gt; next(I)  #Python 2.6以前版本应该是 I.next()
+2
+&gt;&gt;&gt; next(I)  #Python 2.6以前版本应该是 I.next()
+3
+&gt;&gt;&gt; next(I)  #Python 2.6以前版本应该是 I.next()
+
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#26&gt;&quot;, line 1, in &lt;module&gt;
+    I.next()
+StopIteration
+</code></pre><p>直接的效果就是，不再需要调用keys()方法来遍历字典键，for循环将使用迭代协议在每次迭代的时候获取一个键：</p>
+<pre><code>&gt;&gt;&gt; for key in D:
+        print (key, D[key])
+1 2
+2 3
+3 4
+</code></pre><p>可迭代的对象一次返回一个结果，而不是一个实际的列表：</p>
+<pre><code>&gt;&gt;&gt; R = range(5)
+&gt;&gt;&gt; R
+[0, 1, 2, 3, 4]
+
+&gt;&gt;&gt; I = iter(R)
+&gt;&gt;&gt; I.next()
+0
+&gt;&gt;&gt; I.next()
+1
+&gt;&gt;&gt; I.next()
+2
+</code></pre><h2 id="列表解析"><a href="#列表解析" class="headerlink" title="列表解析"></a>列表解析</h2><pre><code>&gt;&gt;&gt; L = [1,2,3,4,5]
+&gt;&gt;&gt; L = [x + 10 for x in L]
+&gt;&gt;&gt; L
+[11,12,13,14,15]
+</code></pre><h2 id="扩展的列表解析语法"><a href="#扩展的列表解析语法" class="headerlink" title="扩展的列表解析语法"></a>扩展的列表解析语法</h2><pre><code>&gt;&gt;&gt; L = [1,2,3,4,5]
+&gt;&gt;&gt; L = [x for x in L if x%2==0]
+&gt;&gt;&gt; L
+[2, 4]
+</code></pre><h2 id="range迭代器"><a href="#range迭代器" class="headerlink" title="range迭代器"></a>range迭代器</h2><p>在Python 3.0中，它返回一个迭代器，该迭代器根据需要产生范围中的数字，而不是在内存中构建一个结果列表（在Python 2.X中是产生结果列表）。如果需要一个范围列表的话，需要使用list(range(…))来强制一个真正的范围列表。</p>
+<p>和在Python 2.x中调用range返回列表不同，Python 3.0中的range对象只支持迭代、索引、以及len函数。它们不支持任何其他的序列操作（如果需要更多列表工具的话，使用list(…)）。</p>
+<p><em>版本差异：Python 2.x也有一个名为xrange的内置函数，它就像Python 3.0的range一样，根据需要产生元素而不是一次性在内存中构建一个结果列表。xrange在Python 3.0中被range取代，xrange不再可用。在Python 2.x中使用xrange可最小化内存，类似地，在Python 2.x中使用file.xreadlines()方法在Python 3.0中取消了，而是倾向于使用文件迭代。</em></p>
+<h2 id="map、zip和filter迭代器"><a href="#map、zip和filter迭代器" class="headerlink" title="map、zip和filter迭代器"></a>map、zip和filter迭代器</h2><p><img src="map、zip和filter迭代器1.png" alt="img"></p>
+<h2 id="多个迭代器-VS-单个迭代器"><a href="#多个迭代器-VS-单个迭代器" class="headerlink" title="多个迭代器 VS 单个迭代器"></a>多个迭代器 VS 单个迭代器</h2><p><img src="多个迭代器VS单个迭代器1.png" alt="img"></p>
+<p><img src="多个迭代器VS单个迭代器2.png" alt="img"></p>
+<p><img src="多个迭代器VS单个迭代器3.png" alt="img"></p>
+<h2 id="字典视图迭代器"><a href="#字典视图迭代器" class="headerlink" title="字典视图迭代器"></a>字典视图迭代器</h2><p><img src="字典视图迭代器1.png" alt="img"></p>
+<p><img src="字典视图迭代器2.png" alt="img"></p>
+<p><img src="字典视图迭代器3.png" alt="img"></p>
+<p><img src="字典视图迭代器4.png" alt="img"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/语法/" rel="tag"># 语法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/11/读《Python学习手册》之语句和语法/" rel="next" title="读《Python学习手册》之语句和语法">
+                <i class="fa fa-chevron-left"></i> 读《Python学习手册》之语句和语法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/23/红包随机算法/" rel="prev" title="红包随机算法">
+                红包随机算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="ruihong" />
+            
+              <p class="site-author-name" itemprop="name">ruihong</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.google.com/" title="谷歌" target="_blank">谷歌</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="百度" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#while-和-for-循环"><span class="nav-number">1.</span> <span class="nav-text">while 和 for 循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#break、continue、pass-和循环-else"><span class="nav-number">2.</span> <span class="nav-text">break、continue、pass 和循环 else</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一般循环格式"><span class="nav-number">3.</span> <span class="nav-text">一般循环格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pass"><span class="nav-number">4.</span> <span class="nav-text">pass</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#continue"><span class="nav-number">5.</span> <span class="nav-text">continue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#break"><span class="nav-number">6.</span> <span class="nav-text">break</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环else"><span class="nav-number">7.</span> <span class="nav-text">循环else</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for循环"><span class="nav-number">8.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并行遍历：zip-和-map"><span class="nav-number">9.</span> <span class="nav-text">并行遍历：zip 和 map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-2-6中的map的等价形式"><span class="nav-number">10.</span> <span class="nav-text">Python 2.6中的map的等价形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用zip构造字典"><span class="nav-number">11.</span> <span class="nav-text">使用zip构造字典</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#产生偏移的元素：enumerate"><span class="nav-number">12.</span> <span class="nav-text">产生偏移的元素：enumerate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代器"><span class="nav-number">13.</span> <span class="nav-text">迭代器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件迭代器"><span class="nav-number">14.</span> <span class="nav-text">文件迭代器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手动迭代：-iter-和-next"><span class="nav-number">15.</span> <span class="nav-text">手动迭代： iter 和 next</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他内置类型的迭代器"><span class="nav-number">16.</span> <span class="nav-text">其他内置类型的迭代器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表解析"><span class="nav-number">17.</span> <span class="nav-text">列表解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展的列表解析语法"><span class="nav-number">18.</span> <span class="nav-text">扩展的列表解析语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#range迭代器"><span class="nav-number">19.</span> <span class="nav-text">range迭代器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map、zip和filter迭代器"><span class="nav-number">20.</span> <span class="nav-text">map、zip和filter迭代器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多个迭代器-VS-单个迭代器"><span class="nav-number">21.</span> <span class="nav-text">多个迭代器 VS 单个迭代器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典视图迭代器"><span class="nav-number">22.</span> <span class="nav-text">字典视图迭代器</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ruihong</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#vcomments' ,
+        verify: false,
+        notify: false,
+        app_id: 'YzwnXYA3TiEPb9FpBgPLidf2-gzGzoHsz',
+        app_key: 'tDaCHaTTNRP2BqOzs5IId6mS',
+        placeholder: 'Comment input placeholder'
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("YzwnXYA3TiEPb9FpBgPLidf2-gzGzoHsz", "tDaCHaTTNRP2BqOzs5IId6mS");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

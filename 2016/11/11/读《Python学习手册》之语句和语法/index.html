@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="语法," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="记录Python一些特殊的语法规则。">
+<meta name="keywords" content="语法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="读《Python学习手册》之语句和语法">
+<meta property="og:url" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/index.html">
+<meta property="og:site_name" content="ruihong&#39;s blog">
+<meta property="og:description" content="记录Python一些特殊的语法规则。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/高级序列赋值语句模式1.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/高级序列赋值语句模式2.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/高级序列赋值语句模式3.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/高级序列赋值语句模式4.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/扩展的解包1.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/扩展的解包2.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/扩展的解包3.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/边界情况.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/多目标赋值语句1.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/多目标赋值语句2.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/多目标赋值语句3.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/多目标赋值语句4.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/增强赋值以及共享引用.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/变量命名规则1.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/变量命名规则2.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/变量命名规则3.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/变量命名规则4.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/命名惯例.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/表达式语句1.png">
+<meta property="og:image" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/表达式语句2.png">
+<meta property="og:updated_time" content="2017-10-14T08:26:48.927Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="读《Python学习手册》之语句和语法">
+<meta name="twitter:description" content="记录Python一些特殊的语法规则。">
+<meta name="twitter:image" content="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/高级序列赋值语句模式1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/"/>
+
+
+
+
+
+  <title>读《Python学习手册》之语句和语法 | ruihong's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ruihong's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不经一番寒彻骨，怎得梅花扑鼻香。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/categories/python/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-list"></i> <br />
+            
+            python
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://linruihong.github.io/2016/11/11/读《Python学习手册》之语句和语法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ruihong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ruihong's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">读《Python学习手册》之语句和语法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-11T15:33:06+08:00">
+                2016-11-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2016/11/11/读《Python学习手册》之语句和语法/" class="leancloud_visitors" data-flag-title="读《Python学习手册》之语句和语法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>记录Python一些特殊的语法规则。</p>
+<a id="more"></a>
+<h2 id="语句规则的特殊情况"><a href="#语句规则的特殊情况" class="headerlink" title="语句规则的特殊情况"></a>语句规则的特殊情况</h2><p>Python可能出现一行出现多个语句的情况，语句间以分号隔开：</p>
+<pre><code>a = 1; b = 2; print(a+b)
+</code></pre><p>这是Python中唯一需要分号的地方–作为语句界定符。不过，只有当各个语句本身不是复合语句才行。换句话说，只能把简单语句放在一起。例如，赋值操作、打印和函数调用。复合语句还是必须出现在自己的行里。</p>
+<p>语句的另一个特殊规则基本上是相反的–可以让一个语句的范围横跨多行。为了能实现这一操作，你只需要用一对括号把语句括起来就可以了：括号、方括号、或者字典的大括号。任何括在这些符号里的程序代码都可以横跨好几行。语句将一直运行，直到Python遇到包含闭合括号的那一行。如：</p>
+<pre><code>mlist = [111,
+         222,
+         333]
+</code></pre><p>由于程序被括在一对方括号里，Python会接着运行下一行，直到遇见闭合的方括号为止。花括号包含的字典（以及Python3,0中的集合常量、字典解析以及集合解析）也可以用这个方法横跨数行，并且圆括号可以处理元组、函数调用和表达式。连续行的缩进是无所谓的，尽管常识告诉我们为了让程序具有可读性，那几行也应该对齐。</p>
+<p>这种技巧适用于复合语句：</p>
+<pre><code>if (A == 1 and 
+    B == 2 and 
+    C == 3):
+        print(&apos;spam&apos; * 3)
+</code></pre><p><em>有一条比较老的规则也允许我们跨越数行–当上一行以反斜杠结束时，可以在下一行继续，但是这种方法已经过时了，目前从某种程序上来说，不再提倡这种方法，因为关注并维护反斜杠比较困难，而且这种做法相当脆弱（反斜杠之后可能没有空格）。另外这也是倒退回C语言的例子，因为反斜杠时常在 <code>#define</code> 的宏里使用。</em></p>
+<pre><code>X = A + B + \
+    C + D
+</code></pre><h2 id="代码块规则的特殊实例"><a href="#代码块规则的特殊实例" class="headerlink" title="代码块规则的特殊实例"></a>代码块规则的特殊实例</h2><p>复合语句的主体可以出现在Python的首行冒号之后的情况：</p>
+<pre><code>if x &gt; y: print(x)
+</code></pre><p>只有当复合语句本身不包含任何复合语句的时候，才能这样做。也就是说，只有简单语句可以跟在冒号后面，比如赋值操作、打印、函数调用等。较复杂的语句仍然必须单独放在自己的行里。</p>
+<p><em>语句体可以由几个简单语句组成并用分号隔开，但这种做法已越来越不受欢迎了。</em></p>
+<h2 id="交互式循环"><a href="#交互式循环" class="headerlink" title="交互式循环"></a>交互式循环</h2><pre><code>while True:
+    reply = input(&apos;Enter text:&apos;)
+    if reply == &apos;stop&apos;: break
+    print(reply.upper())
+</code></pre><p>这个程序利用了while循环，是通用的循环语句。读取用户输入并打印出来。利用嵌套代码块特殊规则的单行if语句也在这里出现：if语句体出现在冒号之后而不是在首先的下一行缩进。</p>
+<h2 id="用try语句处理错误"><a href="#用try语句处理错误" class="headerlink" title="用try语句处理错误"></a>用try语句处理错误</h2><pre><code>while True:
+    reply = input(&apos;Enter text:&apos;)
+    if reply == &apos;stop&apos;: break
+    try:
+        num = int(reply)
+    except:
+        print(&apos;bad!&apos; * 8)
+    else:
+        print(int(reply) ** 2)
+print(&apos;bye&apos;)
+</code></pre><p>这个try语句的组成是：try关键字后跟代码主要代码块（尝试运行的代码），再跟except部分，给异常处理器代码，再接else部分，如果try部分没有引发异常，就执行这一部分的代码。Python会先执行try部分，然后运行except部分（如果有异常发生）或else部分（如果没有异常发生）。</p>
+<h2 id="序列赋值"><a href="#序列赋值" class="headerlink" title="序列赋值"></a>序列赋值</h2><p>分解赋值语句：</p>
+<pre><code>&gt;&gt;&gt; A,B = 1,2
+&gt;&gt;&gt; (A,B) = (1,2)
+&gt;&gt;&gt; A
+1
+&gt;&gt;&gt; B
+2
+</code></pre><p>前面两行作用相当，只是第一行省略了括号，实际上是两个元组。赋值时左侧元组内的变量与右侧的值互相匹配，每次赋一个值。</p>
+<p>语句执行时，Python会建立临时的元组，来存储右侧的值，分解赋值语句也是一种交换两变量的值，却不需要自行创建临时变量的方式，右侧的元组会自动记住先前的变量的值：</p>
+<pre><code>&gt;&gt;&gt; a = 1
+&gt;&gt;&gt; b = 2
+&gt;&gt;&gt; a,b = b,a   # 元组交换值
+&gt;&gt;&gt; a,b         # 相当于 T = a; a = b; b = T
+(2,1)
+</code></pre><p>事实上，Python中原始的元组和列表赋值语句形式，最后被通用化，以接受右侧可以是任何类型的序列，只要长度相等即可。你可以将含有一些值的元组赋值给含有一些变量的列表，字符串中的字符赋值给含有一些变量的元组。在通常的情况下，Python会按位置，由左到右，把右侧序列中的元素赋值给左侧序列中的变量：</p>
+<pre><code>&gt;&gt;&gt; [a,b,c] = (1,2,3)
+&gt;&gt;&gt; a,c
+(1,3)
+&gt;&gt;&gt; (a,b,c) = &quot;ABC&quot;
+&gt;&gt;&gt; a,c
+(&apos;A&apos;, &apos;C&apos;)
+</code></pre><p>从技术角度讲，序列赋值语句实际上支持右侧任何可迭代的对象，而不仅局限于任何序列。这是更为通用的概念。</p>
+<h2 id="高级序列赋值语句模式"><a href="#高级序列赋值语句模式" class="headerlink" title="高级序列赋值语句模式"></a>高级序列赋值语句模式</h2><p>虽然可以在”=”号两侧混合相匹配的序列类型，右边元素的数目还是要跟左边的变量的数目相同，不然会产生错误。（Python3.0允许我们使用更为通用的扩展解包语法，但是，在Python2.X中，赋值目标中的项数和主体的数目必须一致）</p>
+<pre><code>&gt;&gt;&gt; string = &apos;spam&apos;
+&gt;&gt;&gt; a,b,c = string
+
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#14&gt;&quot;, line 1, in &lt;module&gt;
+    a,b,c = string
+ValueError: too many values to unpack
+</code></pre><p>想要更通用的话，就需要使用分片了。</p>
+<p><img src="高级序列赋值语句模式1.png" alt="img"><br><img src="高级序列赋值语句模式2.png" alt="img"><br><img src="高级序列赋值语句模式3.png" alt="img"><br><img src="高级序列赋值语句模式4.png" alt="img"></p>
+<h2 id="扩展的解包"><a href="#扩展的解包" class="headerlink" title="扩展的解包"></a>扩展的解包</h2><p>序列赋值通常要求左边的目标数目与右边的主体的项数完全一致，如果长度不同，会产生错误，除非使用手动地在右边分片</p>
+<p>然而，在Python3.0中，我们可以在目标中使用带单个星号<code>*</code>的名称来更通用地匹配：</p>
+<pre><code>&gt;&gt;&gt; seq = [1,2,3,4]
+&gt;&gt;&gt; a, *b = seq
+&gt;&gt;&gt; a
+1
+&gt;&gt;&gt; b
+[2,3,4]
+</code></pre><p>上面例子中，a匹配右边序列第一项，b匹配剩下的内容。</p>
+<p>当使用一个带星号的名称时，左边的目标项数不需要与右边主体序列长度匹配。实际上，带星号的名称可以出现在目标中的任何地方：</p>
+<pre><code>&gt;&gt;&gt; *a, b = seq
+&gt;&gt;&gt; a
+[2,3,4]
+&gt;&gt;&gt; b
+4
+</code></pre><p>上面例子中，b匹配最后一项，a匹配最后一项之前的所有内容。</p>
+<p>当带星号的名称出现在中间，它收集其他列出的名称之间的所有内容。</p>
+<pre><code>&gt;&gt;&gt; a, *b, c = seq
+&gt;&gt;&gt; a
+1
+&gt;&gt;&gt; b
+[2,3]
+&gt;&gt;&gt; c
+4
+</code></pre><p>上面例子中，第一项和最后一项分别给了a和c，剩余的都给了b。</p>
+<p>更一般的，不管带星号的名称出现在哪里，包含该位置的每个未赋值名称的一个列表都将赋给它：</p>
+<pre><code>&gt;&gt;&gt; a, b, *c = seq
+&gt;&gt;&gt; a
+1
+&gt;&gt;&gt; b
+2
+&gt;&gt;&gt; c
+[3,4]
+</code></pre><p><img src="扩展的解包1.png" alt="img"><br><img src="扩展的解包2.png" alt="img"><br><img src="扩展的解包3.png" alt="img"></p>
+<h2 id="边界情况"><a href="#边界情况" class="headerlink" title="边界情况"></a>边界情况</h2><p>尽管扩展的序列解包很灵活，一些边界情况还是值得注意。首先，带星号的名称可能只匹配单个的项，但是，总是会向其赋值一个列表：</p>
+<pre><code>&gt;&gt;&gt; seq = [1,2,3,4]
+&gt;&gt;&gt; a,b,c,*d = seq
+&gt;&gt;&gt; print(a,b,c,d)
+1 2 3 [4]
+</code></pre><p>其次，如果没有剩下的内容可以匹配带星号的名称，它会赋值一个空的列表，不管该名称出现在哪里。</p>
+<pre><code>&gt;&gt;&gt; a,b,c,d,*e = seq
+&gt;&gt;&gt; print(a,b,c,d,e)
+1 2 3 4 []
+
+&gt;&gt;&gt; a,b,*e,c,d = seq
+&gt;&gt;&gt; print(a,b,c,d,e)
+1 2 3 4 []
+</code></pre><p>最后，如果有多个带星号的名称，或者如果值少了而没有带星号的名称，以及如果带星号的名称自身没有编写到一个列表中，都将会引发错误：</p>
+<p><img src="边界情况.png" alt="img"></p>
+<h2 id="多目标赋值语句"><a href="#多目标赋值语句" class="headerlink" title="多目标赋值语句"></a>多目标赋值语句</h2><p><img src="多目标赋值语句1.png" alt="img"><br><img src="多目标赋值语句2.png" alt="img"><br><img src="多目标赋值语句3.png" alt="img"><br><img src="多目标赋值语句4.png" alt="img"></p>
+<h2 id="增强赋值语句"><a href="#增强赋值语句" class="headerlink" title="增强赋值语句"></a>增强赋值语句</h2><pre><code>X = X + Y
+X += Y     #与上一句结果一样
+</code></pre><p>增强赋值语句有三个优点：</p>
+<ul>
+<li>程序员输入减少</li>
+<li>左侧只需要计算一次。在 <code>X += Y</code> 中，X可以是复杂的对象表达式。在增强形式中，则只需计算一次。然而，在完整形式 <code>X = X + Y</code> 中，X出现两次，必须执行两次。因此，增强赋值语句通常执行得更快。</li>
+<li>优化技术会自动选择。对于支持原处修改的对象而言，增强形式会自动执行原处的修改运算，而不是相比来说速度更慢的复制。</li>
+</ul>
+<p>在这里最后一点需要多一点说明。就增强赋值语句而言，在原处的运算可作为一种优化而应用在可变对象上。列表可以用各种方式扩展。要增加单个的元素到列表末尾时，我们可以合并或调用append：</p>
+<pre><code>&gt;&gt;&gt; L = [1,2]
+&gt;&gt;&gt; L = L + [3]        #合并，比较慢
+&gt;&gt;&gt; L
+[1,2,3]
+
+&gt;&gt;&gt; L.append(4)        #原处修改，比较快
+&gt;&gt;&gt; L
+[1,2,3,4]
+</code></pre><p>此外，要把一组元素增加到末尾，可以再次使用合并，或者调用列表的extend方法（extend方法更快一点）。</p>
+<p><em>也可以使用分片赋值语句（L[len(L):] = [1,2,3]），这样和一些简单的extend方法相似</em></p>
+<p>两种情况下，合并对共享对象引用产生的副作用可能会更小，但是，通常会比对等的原处形式运行得更慢。合并操作必须创建一个新的对象，把左侧的复制到列表中，然后再把右侧的复制到列表中。相比而言，原处方法调用直接在一个内存块末尾添加项。</p>
+<p>当我们使用增强赋值语句来扩展列表时，可以忘记这些细节。例如，Python会自动调用较快的extend方法，而不是使用较慢的”+”合并运算。</p>
+<h2 id="增强赋值以及共享引用"><a href="#增强赋值以及共享引用" class="headerlink" title="增强赋值以及共享引用"></a>增强赋值以及共享引用</h2><p>“+=”是对列表做原处修改，而”+”是合并，会生成新对象。就所有共享引用的情况而言，只有其他变量名引用的对象被修改，”+=”和”+”的差别才可能体现出来：</p>
+<p><img src="增强赋值以及共享引用.png" alt="img"></p>
+<p>这只对于列表和字典这类可变对象才重要，而且是相当罕见的情况。就像往常一样，如果需要打破共享引用值的结构，就要对可变对象进行拷贝。</p>
+<h2 id="变量命名规则"><a href="#变量命名规则" class="headerlink" title="变量命名规则"></a>变量命名规则</h2><p><img src="变量命名规则1.png" alt="img"><br><img src="变量命名规则2.png" alt="img"><br><img src="变量命名规则3.png" alt="img"><br><img src="变量命名规则4.png" alt="img"></p>
+<h2 id="命名惯例"><a href="#命名惯例" class="headerlink" title="命名惯例"></a>命名惯例</h2><p><img src="命名惯例.png" alt="img"></p>
+<h2 id="表达式语句"><a href="#表达式语句" class="headerlink" title="表达式语句"></a>表达式语句</h2><p>在Python中，你可以使用表达式作为语句（本身占一行）。但是因为表达式结果不会存储，只有当表达式工作并作为附加的效果，这样才有意义。通常在两种情况下表达式用作语句。</p>
+<ul>
+<li>调用函数和方法</li>
+</ul>
+<p>有些函数和方法会做很多工作，而不会有返回值。这种函数在其他语言中有时称为过程。因为它们不会返回你可能想保留的值，所以你可以用表达式语句调用这些函数。</p>
+<ul>
+<li>在交互模式提示符下打印值</li>
+</ul>
+<p>Python会在交互模式命令中响应输入的表达式的结果。从技术上讲，这些也是表达式语句。作为输入print语句的简写方法。</p>
+<p><img src="表达式语句1.png" alt="img"><br><img src="表达式语句2.png" alt="img"></p>
+<h2 id="真值测试"><a href="#真值测试" class="headerlink" title="真值测试"></a>真值测试</h2><p>Python的布尔运算符和C这类语言的布尔运算符有些不同。在Python中：</p>
+<ul>
+<li>任何非零数字或非空对象都为真</li>
+<li>数字零、空对象以及特殊对象None都被认为是假</li>
+<li>比较和相等测试会递归地应用在数据结构中</li>
+<li>比较和相等测试会返回True或False（1和0的特殊版本）</li>
+<li>布尔and和or运算符会返回真或假的操作对象</li>
+</ul>
+<p>简而言之，布尔运算符是用于结合其他测试的结果。Python 中有三种布尔表达式运算符：</p>
+<ul>
+<li>x and y</li>
+<li>x or y </li>
+<li>not x</li>
+</ul>
+<p>此处，x 和 y 可以是任何真值或者返回真值的表达式。布尔运算符在 Python 中是字（不是C的&amp;&amp;、||、!）。此外，布尔 and 和 or 运算符在 Python 中会返回真或假对象，而不是值 True 或 False。and 和 or 运算符总会返回对象，不是运算符左侧的对象，就是右侧的对象。如果在 if 或者其他语句中测试其结果，总会如预期的结果那样（每个对象本质上不是真就是假），但不会得到简单的 True 或 False。</p>
+<p>就 or 测试而言，Python 会由左到右求算操作对象，然后返回第一个为真的操作对象。再者，Python 会在其找到第一个真值操作数的地方停止。这通常叫做 <strong>短路计算</strong> ，因为求出结果后，就会使表达式其余部分短路（终止）：</p>
+<pre><code>&gt;&gt;&gt; 2 or 3, 3 or 2
+(2, 3)
+</code></pre><p>在结果知道时，and 运算也会立刻停止。然后，就此而言，Python 由左至右计算操作数，并且停在第一个为假的对象上：</p>
+<pre><code>&gt;&gt;&gt; 2 and 3, 3 and 2
+(3, 2)
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/语法/" rel="tag"># 语法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/10/克拉默法则解三元一次方程组/" rel="next" title="克拉默法则解三元一次方程组">
+                <i class="fa fa-chevron-left"></i> 克拉默法则解三元一次方程组
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/02/读《Python学习手册》之语句和语法2/" rel="prev" title="读《Python学习手册》之语句和语法2">
+                读《Python学习手册》之语句和语法2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="ruihong" />
+            
+              <p class="site-author-name" itemprop="name">ruihong</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.google.com/" title="谷歌" target="_blank">谷歌</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="百度" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#语句规则的特殊情况"><span class="nav-number">1.</span> <span class="nav-text">语句规则的特殊情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码块规则的特殊实例"><span class="nav-number">2.</span> <span class="nav-text">代码块规则的特殊实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交互式循环"><span class="nav-number">3.</span> <span class="nav-text">交互式循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用try语句处理错误"><span class="nav-number">4.</span> <span class="nav-text">用try语句处理错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#序列赋值"><span class="nav-number">5.</span> <span class="nav-text">序列赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级序列赋值语句模式"><span class="nav-number">6.</span> <span class="nav-text">高级序列赋值语句模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展的解包"><span class="nav-number">7.</span> <span class="nav-text">扩展的解包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#边界情况"><span class="nav-number">8.</span> <span class="nav-text">边界情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多目标赋值语句"><span class="nav-number">9.</span> <span class="nav-text">多目标赋值语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增强赋值语句"><span class="nav-number">10.</span> <span class="nav-text">增强赋值语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增强赋值以及共享引用"><span class="nav-number">11.</span> <span class="nav-text">增强赋值以及共享引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量命名规则"><span class="nav-number">12.</span> <span class="nav-text">变量命名规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名惯例"><span class="nav-number">13.</span> <span class="nav-text">命名惯例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表达式语句"><span class="nav-number">14.</span> <span class="nav-text">表达式语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#真值测试"><span class="nav-number">15.</span> <span class="nav-text">真值测试</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ruihong</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#vcomments' ,
+        verify: false,
+        notify: false,
+        app_id: 'YzwnXYA3TiEPb9FpBgPLidf2-gzGzoHsz',
+        app_key: 'tDaCHaTTNRP2BqOzs5IId6mS',
+        placeholder: 'Comment input placeholder'
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("YzwnXYA3TiEPb9FpBgPLidf2-gzGzoHsz", "tDaCHaTTNRP2BqOzs5IId6mS");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

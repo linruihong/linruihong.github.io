@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="docker,安装," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="记一下 Windows 7 下安装过程的坑⊙﹏⊙‖∣">
+<meta name="keywords" content="docker,安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker学习之安装">
+<meta property="og:url" content="https://linruihong.github.io/2017/06/03/docker学习之安装/index.html">
+<meta property="og:site_name" content="ruihong&#39;s blog">
+<meta property="og:description" content="记一下 Windows 7 下安装过程的坑⊙﹏⊙‖∣">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-29T06:37:33.689Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="docker学习之安装">
+<meta name="twitter:description" content="记一下 Windows 7 下安装过程的坑⊙﹏⊙‖∣">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://linruihong.github.io/2017/06/03/docker学习之安装/"/>
+
+
+
+
+
+  <title>docker学习之安装 | ruihong's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ruihong's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不经一番寒彻骨，怎得梅花扑鼻香。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-python">
+          <a href="/categories/python/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-list"></i> <br />
+            
+            python
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://linruihong.github.io/2017/06/03/docker学习之安装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ruihong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ruihong's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">docker学习之安装</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-03T11:56:41+08:00">
+                2017-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/06/03/docker学习之安装/" class="leancloud_visitors" data-flag-title="docker学习之安装">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>记一下 Windows 7 下安装过程的坑⊙﹏⊙‖∣</p>
+<a id="more"></a>
+<p>不看踩坑过程，可直接跳过，看<a href="#summary">总结</a>。</p>
+<hr>
+<p>docker 这东西，听了好多次，就是没去了解是什么，但是感觉好厉害的样子–!。趁着有空闲时间，搞一下:-)。</p>
+<p>不管3721，先把环境搞起来。网上虽然有教程，但是要么太旧，要么太傻，我又喜欢搞自定义安装，结果就是安装个 docker 花了我1个小时。</p>
+<p>抱着玩玩的心态，选择在 windows 上安装，按《Docker 技术入门与实战》（应该是第1版）上面说的，在 windows 上运行 docker 要额外使用一个虚拟机来提供 Linux 支持，推荐使用 Boot2Docker 工具。</p>
+<p>然而，到书上提供的网址<a href="https://docs.docker.com/docker-for-windows/install/" target="_blank" rel="external">docker docs(docker 手册)</a>指引下载了<a href="https://download.docker.com/win/stable/InstallDocker.msi" target="_blank" rel="external">Docker for Windows</a>后发现不能安装（提示：This version of Docker requires Windows 10 Pro , Enterprise or Education edition with a minimum build number of 10586 . Please use Docker Toolbox），只能到<a href="https://www.docker.com/products/docker-toolbox" target="_blank" rel="external">Docker官网</a>下载<a href="https://download.docker.com/win/stable/DockerToolbox.exe" target="_blank" rel="external">Docker Toolbox</a>。</p>
+<p>下载完 Docker Toolbox 后，安装的时候，并没有按默认方式安装（软件自带的 git 我没有选择安装，因为机器上本来就装过 git 了，想发再装也是多余，安装路径也不是默认的而是指定我自己的路径），接着安装完后，第一次打开 <code>Docker Quickstart Terminal</code> 快捷方式的时候，提示：windows正在查找bash.exe。如果想亲自查找文件，请单击“浏览”。</p>
+<p>想着可能是没有安装软件自带的 git ，于是又重新装了一次，还让软件把机器原来的 git 给卸了，再开，还是提示：windows正在查找bash.exe。如果想亲自查找文件，请单击“浏览”。网上找了一下，才知道是快捷方式中指定的执行程序 <code>bash.exe</code> 找不到了，只要找到 git 安装目录下的 bin 目录下的 <code>bash.exe</code> 后，再指定给快捷方式，就好了。设置完再开，没有提示找不到 <code>bash.exe</code> 了，进入 CMD 了，不过输出内容跟网上教程描述的不一样，是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Running pre-create checks...</div><div class="line"></div><div class="line">(default) No default Boot2Docker ISO found locally, downloading the latest relea</div><div class="line">se...</div><div class="line"></div><div class="line">(default) Latest release for github.com/boot2docker/boot2docker is v17.05.0-ce</div><div class="line"></div><div class="line">(default) Downloading C:\Users\Administrator\.docker\machine\cache\boot2docker.i</div><div class="line">so from https://github.com/boot2docker/boot2docker/releases/download/v17.05.0-ce</div><div class="line">/boot2docker.iso...</div></pre></td></tr></table></figure>
+<p>然后就到网上搜，知道是本地没有默认的 <code>Boot2Docker ISO</code> 文件，需要联网下载，但是等了好久还是下载失败了。然后就把<a href="https://github.com/boot2docker/boot2docker/releases/download/v17.03.2-ce-rc1/boot2docker.iso" target="_blank" rel="external">下载地址</a>复制出来，用浏览器下，等了好久都下不了，想着可能是“局域网”不允许下载吧，挂VPN，还是不行。快放弃了的时候换了个浏览器（开始一直用 360，后来换谷歌 Chrome），居然下得动了。</p>
+<p>下好后，把下好的 <code>boot2docker.iso</code> 文件，放到 CMD 里面提示的下载目录(即 <code>C:\Users\Administrator\.docker\machine\cache\</code>)中，再次打开 <code>Docker Quickstart Terminal</code> ，成功了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">                  ##         .</div><div class="line">            ## ## ##        ==</div><div class="line">         ## ## ## ## ##    ===</div><div class="line">     /&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;\___/ ===</div><div class="line">~~~ &#123;~~ ~~~~ ~~~ ~~~~ ~~~ ~ /  ===- ~~~</div><div class="line">     \______ o           __/</div><div class="line">       \    \         __/</div><div class="line">        \____\_______/</div></pre></td></tr></table></figure>
+<p><em>注：在<a href="https://github.com/boot2docker/windows-installer/releases" target="_blank" rel="external">github</a>上看到 boot2docker 貌似有个 windows 安装程序 <code>windows-installer</code> ，现在已经下载不了了，<a href="https://github.com/boot2docker/windows-installer/releases" target="_blank" rel="external">github</a>上的 Lastest release 写着 <code>Deprecated：This project (the boot2docker Windows Installer) is officially deprecated in favor of the new Docker Toolbox</code> 。取而代之的是 Docker Toolbox（<a href="https://download.docker.com/win/stable/DockerToolbox.exe" target="_blank" rel="external">下载地址</a>）</em></p>
+<p><span id="summary">总结：</span><br>windows 7 下安装docker的最简单方式：查看<a href="https://www.docker.com/products/docker-toolbox" target="_blank" rel="external">Docker Toolbox</a>，下载<a href="https://download.docker.com/win/stable/DockerToolbox.exe" target="_blank" rel="external">Docker Toolbox</a>，按默认方式一路安装到底。</p>
+<p>可能遇到的问题及解决办法：</p>
+<ul>
+<li>打开 <code>Docker Quickstart Terminal</code> 快捷方式，提示 <code>windows正在查找bash.exe。如果想亲自查找文件，请单击“浏览”</code> ，这是因为快捷方式里设置的 <code>base.exe</code> 路径不对，导致找不到 <code>bash.exe</code> 。右键 <code>Docker Quickstart Terminal</code> 快捷方式 -&gt; 属性，在本机上找到正确的 <code>bash.exe</code> 路径，重新设置就好了。</li>
+<li>CMD 下提示 <code>Downloading XXXXXX /boot2docker.iso...</code> ，这是因为本机没有 <code>Boot2Docker ISO</code> 镜像文件，正常情况下会自动下载完成的，等等就好。也可以把提示中的下载地址复制出来单独下载，然后把下载好的文件放入提示中出现的下载目录中，再启动 <code>Docker Quickstart Terminal</code> 快捷方式。具体做法是：复制下载地址（本例中是： <code>https://github.com/boot2docker/boot2docker/releases</code> ）在浏览器中打开，选择里面的 Lastest release 版本下载，然后把下载好的 <code>boot2docker.iso</code> 文件，放到指定的下载目录（本例中是： <code>C:\Users\Administrator\.docker\machine\cache\</code>），打开 <code>Docker Quickstart Terminal</code> 快捷方式。</li>
+</ul>
+<p>windows 10 下也可以下载<a href="https://download.docker.com/win/stable/DockerToolbox.exe" target="_blank" rel="external">Docker Toolbox</a>，按默认方式一路安装到底，与 windows 7 无异。</p>
+<p><em>2017/6/10 补充：windows 10 下第一次安装完成，启动后，报 VirtualBox 启动失败。然后把 Docker Toolbox 和 VirtualBox 都卸载了，重新安装一次，居然好了。汗…</em></p>
+<hr>
+<p>另外，windows 10 系统下，可以查看<a href="https://docs.docker.com/docker-for-windows/install" target="_blank" rel="external">docker docs</a>，下载<a href="https://store.docker.com/editions/community/docker-ce-desktop-windows" target="_blank" rel="external">Docker for Windows</a>，不过貌似会要求开启 windows 10 的 Hyper-V 服务，Hyper-V 服务听说会和 VBOX、VMware 等冲突，且开启后再想关闭不一定可以，不敢试。不小心开了的想关掉可试试下面的方法（没试过，不保证成功）：<br><a href="http://mumu.163.com/2016/12/15/25241_661763.html" target="_blank" rel="external">方法一</a>、<a href="https://answers.microsoft.com/zh-hans/windows/forum/windows_10-other_settings/windows10%E5%BC%80%E5%90%AFhyper/8cd42613-320c-411c-bcbd-5ad27f9d911f" target="_blank" rel="external">方法二</a>、<a href="https://dotblogs.com.tw/supershowwei/2016/04/06/170842" target="_blank" rel="external">方法三</a>。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/docker/" rel="tag"># docker</a>
+          
+            <a href="/tags/安装/" rel="tag"># 安装</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/19/HTML学习/" rel="next" title="HTML 学习">
+                <i class="fa fa-chevron-left"></i> HTML 学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/21/docker学习之命令/" rel="prev" title="docker学习之命令">
+                docker学习之命令 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="ruihong" />
+            
+              <p class="site-author-name" itemprop="name">ruihong</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.google.com/" title="谷歌" target="_blank">谷歌</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="百度" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ruihong</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#vcomments' ,
+        verify: false,
+        notify: false,
+        app_id: 'YzwnXYA3TiEPb9FpBgPLidf2-gzGzoHsz',
+        app_key: 'tDaCHaTTNRP2BqOzs5IId6mS',
+        placeholder: 'Comment input placeholder'
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("YzwnXYA3TiEPb9FpBgPLidf2-gzGzoHsz", "tDaCHaTTNRP2BqOzs5IId6mS");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
