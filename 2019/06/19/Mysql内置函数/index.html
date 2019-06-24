@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="ruihong&#39;s blog">
 <meta property="og:description" content="记录用过的几个MySQL/MariaDB的内置函数的使用方法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-19T10:18:33.485Z">
+<meta property="og:updated_time" content="2019-06-24T10:26:00.644Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql内置函数">
 <meta name="twitter:description" content="记录用过的几个MySQL/MariaDB的内置函数的使用方法。">
@@ -435,6 +435,41 @@ mysql&gt; SELECT  CAST(100 AS CHAR(2)),CONVERT(&apos;2013-8-9 12:12:12&apos;,TIM
 +-------------------+---------------+------------------+
 | ab1               | 123           | NULL             |
 +-------------------+---------------+------------------+
+</code></pre><h2 id="floor-和-ceiling"><a href="#floor-和-ceiling" class="headerlink" title="floor 和 ceiling"></a>floor 和 ceiling</h2><p>地板函数floor(x)返回比x小的最大整数，天花板函数ceiling(x)返回比x大的最小整数。</p>
+<pre><code>mysql&gt; select floor(3.4),floor(-3.4),ceiling(3.4),ceiling(-3.4);
++------------+-------------+--------------+---------------+
+| floor(3.4) | floor(-3.4) | ceiling(3.4) | ceiling(-3.4) |
++------------+-------------+--------------+---------------+
+|          3 |          -4 |            4 |            -3 |
++------------+-------------+--------------+---------------+
+</code></pre><h2 id="rand"><a href="#rand" class="headerlink" title="rand"></a>rand</h2><p>随机函数rand()每次随机返回一个0-1之间不包括0和1的数，且每次运行结果都不同。</p>
+<pre><code>mysql&gt; select rand(),rand();
++-------------------+-------------------+
+| rand()            | rand()            |
++-------------------+-------------------+
+| 0.858217649961093 | 0.232124938845751 |
++-------------------+-------------------+
+</code></pre><p>若要取得0-100之间的数，可以使用100去乘随机值，但这样获得的函数还是不包含0和100这两个边界的。</p>
+<pre><code>mysql&gt; select 100*rand(),100*rand(),100*rand();
++-----------------+------------------+------------------+
+| 100*rand()      | 100*rand()       | 100*rand()       |
++-----------------+------------------+------------------+
+| 58.597177507912 | 23.3484089591991 | 40.9505153456242 |
++-----------------+------------------+------------------+
+</code></pre><p>若要取整，则可以配合floor()或者ceiling()函数。但这样取得的是[0,99]或者[1,100]，而不能是[0,100]。</p>
+<pre><code>mysql&gt; select floor(100*rand()) as &apos;[0,99]&apos;,ceiling(100*rand()) as &apos;[1,100]&apos;;
++--------+---------+
+| [0,99] | [1,100] |
++--------+---------+
+|     95 |      33 |
++--------+---------+
+</code></pre><p>如果要想获得[0-100]这样包含边界的值，可以拓宽随机值。以下是两种方法：</p>
+<pre><code>mysql&gt; select ceiling(rand()*101-1),floor(rand()*101);
++-----------------------+-------------------+
+| ceiling(rand()*101-1) | floor(rand()*101) |
++-----------------------+-------------------+
+|                    99 |                 9 |
++-----------------------+-------------------+
 </code></pre>
       
     </div>
@@ -631,7 +666,7 @@ mysql&gt; SELECT  CAST(100 AS CHAR(2)),CONVERT(&apos;2013-8-9 12:12:12&apos;,TIM
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#lpad-和-rpad"><span class="nav-number">1.</span> <span class="nav-text">lpad 和 rpad</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CAST"><span class="nav-number">2.</span> <span class="nav-text">CAST</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#password-和-md5"><span class="nav-number">3.</span> <span class="nav-text">password 和 md5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CONCAT"><span class="nav-number">4.</span> <span class="nav-text">CONCAT</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#lpad-和-rpad"><span class="nav-number">1.</span> <span class="nav-text">lpad 和 rpad</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CAST"><span class="nav-number">2.</span> <span class="nav-text">CAST</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#password-和-md5"><span class="nav-number">3.</span> <span class="nav-text">password 和 md5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CONCAT"><span class="nav-number">4.</span> <span class="nav-text">CONCAT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#floor-和-ceiling"><span class="nav-number">5.</span> <span class="nav-text">floor 和 ceiling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rand"><span class="nav-number">6.</span> <span class="nav-text">rand</span></a></li></ol></div>
             
 
           </div>
